@@ -44,6 +44,13 @@
   
 
         <tr *ngFor = "let item of items" >
+          <h2
+          *ngFor="
+            let data of dataset | paginate: { itemsPerPage: 2, currentPage: pages }
+          "
+        >
+       
+      </h2>
             <td> {{ item.title }} </td>
             <td> {{ item.pubdate }} </td>
             <td> {{ item.description }} </td>
@@ -51,7 +58,7 @@
             <td> {{ item.link }} </td>
             <td> {{ item.content }} </td>
             <td> {{ item.credit }} </td>
-
+          
 
             <div class="card-body">
               <div class="float-right btn-group btn-group-sm">
@@ -59,13 +66,23 @@
               </div>
     </div>
 
+
+    
+
            
         </tr>
+
+        <div>
+        
+        </div>
+        
       </tbody>
   
 
   
 </table>
+<pagination-controls (pageChange)="pages = $event"></pagination-controls>
+
 
 
 

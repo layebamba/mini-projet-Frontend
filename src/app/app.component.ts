@@ -9,17 +9,23 @@ import { ItemService } from './item.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+  pages: number = 1;
+  dataset: any[] = ['1','2','3','4','5','6','7','8','9','10'];
+
   public items!:Item[];
 
   public editItem: Item |null| undefined
 
 
   constructor(private itemService:ItemService){
+    
 
   }
   ngOnInit(): void {
     this.getItems();
    // throw new Error('Method not implemented.');
+ //  this.pages=Array(5).fill(0).map((x,i)=>{id:(i+1).`pages${i+1}`});
   }
 
     public getItems():void{
@@ -69,6 +75,13 @@ button.setAttribute('data-target','#addEmployeeModal');
 
 
 
+
+  }
+
+  
+
+  pageChange(dataset:any){
+    this.dataset=dataset;
 
   }
     
